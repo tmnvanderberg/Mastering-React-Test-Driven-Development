@@ -4,7 +4,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import {
     Appointment,
     AppointmentsDayView,
-} from '../src/Appointment';
+} from '../src/appointment';
 
 describe('Appointment', () => {
     let container;
@@ -91,7 +91,7 @@ describe('AppointmentsDayView', () => {
     it('initially shows a message saying there are no appointments today', () => {
         render(<AppointmentsDayView appointments={[]} />);
         expect(container.textContent).toMatch(
-            'There are no appointments scheduler for today.'
+            'There are no appointments scheduled for today.'
         );
     });
 
