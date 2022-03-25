@@ -4,7 +4,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import {
     Appointment,
     AppointmentsDayView,
-} from '../src/appointment';
+} from '../src/AppointmentsDayView';
 
 describe('Appointment', () => {
     let container;
@@ -27,6 +27,12 @@ describe('Appointment', () => {
         customer = { firstName: 'Jordan' };
         render(<Appointment customer={customer} />);
         expect(container.textContent).toMatch('Jordan');
+    });
+
+    it('renders a last name', () => {
+        customer = { lastName: 'Hope' };
+        render(<Appointment customer={customer} />);
+        expect(container.textContent).toMatch('Hope');
     });
 });
 
