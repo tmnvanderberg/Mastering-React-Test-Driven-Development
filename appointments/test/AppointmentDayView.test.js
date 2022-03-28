@@ -13,9 +13,9 @@ describe('Appointment', () => {
             firstName: 'Ashley',
             lastName: 'Hope',
             phoneNumber: '1234567',
-            stylist: 'Hannie Boeljans',
-            service: 'Shave the customer',
         },
+        stylist: 'Hannie Boeljans',
+        service: 'Shave the customer',
         startsAt: today.setHours(12, 0),
     };
 
@@ -25,11 +25,11 @@ describe('Appointment', () => {
     render(<Appointment appointment={appointment} />);
 
     it('renders the customer first name', () => {
-        expect(container.textContent).toMatch('Ashley');
+        expect(container.textContent).toMatch(appointment.customer.firstName);
     });
 
     it('renders a last name', () => {
-        expect(container.textContent).toMatch('Hope');
+        expect(container.textContent).toMatch(appointment.customer.firstName);
     });
 
     it('renders a phone number', () => {
@@ -37,15 +37,15 @@ describe('Appointment', () => {
     });
 
     it('renders a stylist name', () => {
-        expect(container.textContent).toMatch(appointment.customer.stylist);
+        expect(container.textContent).toMatch(appointment.stylist);
     });
 
     it('renders a salon service', () => {
-        expect(container.textContent).toMatch(appointment.customer.service);
+        expect(container.textContent).toMatch(appointment.service);
     });
 
     it('renders a time header', () => {
-        expect(container.textContent).toMatch(appointment.startsAt);
+        expect(container.textContent).toMatch(appointment.startsAt.toString());
     });
 });
 

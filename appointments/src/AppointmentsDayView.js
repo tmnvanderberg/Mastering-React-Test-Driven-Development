@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
 
 export const Appointment = ({ appointment }) => {
-    let customer = appointment.customer;
-    let startsAt = appointment.startsAt;
     return (
         <div>
             <table>
                 <tbody>
                     <tr>
-                        <th>{startsAt}</th>
+                        <th>{appointment.startsAt}</th>
                     </tr>
                     <tr>
                         <th>Customer</th>
-                        <td>{customer.firstName}</td>
-                        <td>{customer.lastName}</td>
+                        <td>{appointment.customer.firstName} {appointment.customer.lastName}</td>
                     </tr>
                     <tr>
                         <th>Phone Number</th>
-                        <td>{customer.phoneNumber}</td>
+                        <td>{appointment.customer.phoneNumber}</td>
                     </tr>
                     <tr>
                         <th>Stylist</th>
-                        <td>{customer.stylist}</td>
+                        <td>{appointment.stylist}</td>
                     </tr>
                     <tr>
                         <th>Service</th>
-                        <td>{customer.service}</td>
+                        <td>{appointment.service}</td>
                     </tr>
                     <tr>
                         <th>Notes</th>
-                        <td>{customer.notes}</td>
+                        <td>{appointment.notes}</td>
                     </tr>
                 </tbody>
             </table>
@@ -58,7 +55,7 @@ export const AppointmentsDayView = ({ appointments }) => {
             {appointments.length === 0 ? (
                 <p>There are no appointments scheduled for today.</p>
             ) : (
-                <Appointment {...appointments[selectedAppointment]} />
+                <Appointment appointment={appointments[selectedAppointment]} />
             )}
         </div>
     );
