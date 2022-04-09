@@ -15,11 +15,16 @@ describe('CustomerForm', () => {
     render(<CustomerForm />);
     expect(form('customer')).not.toBeNull();
   });
+
+  const expectToBeInputFieldOfTypeText = (formElement) => {
+    expect(formElement).not.toBeNull();
+    expect(formElement.tagName).toEqual('INPUT');
+    expect(formElement.type).toEqual('text');
+  };
+
   it('renders the first name fiels as a text box', () => {
-    render(<CustomerForm />);
+    render(<CustomerForm firstName="Ashley"/>);
     const field = form('customer').elements.firstName;
-    expect(field).not.toBeNull();
-    expect(field.tagName).toEqual('INPUT');
-    expect(field.type).toEqual('text');
+    expectToBeInputFieldOfTypeText(field);
   });
 });
